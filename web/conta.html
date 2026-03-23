@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Minha Conta - Banco S</title>
+</head>
+
+<body>
+
+    <h2>Banco S</h2>
+    <p>Olá, <span id="nome">...</span></p>
+    <p>Email: <span id="email">...</span></p>
+
+
+    <h3>SALDO: R$ <span id="saldo">0,00</span></h3>
+
+
+    <h3>Depositar</h3>
+    <input type="number" id="valorDep" step="0.01">
+    <button onclick="depositar()">Depositar</button>
+    <p id="msgDep"></p>
+
+
+    <h3>Sacar</h3>
+    <input type="number" id="valorSaq" step="0.01">
+    <button onclick="sacar()">Sacar</button>
+    <p id="msgSaq"></p>
+
+
+    <h3>Histórico</h3>
+    <div id="historico">Carregando...</div>
+
+    <button onclick="sair()">Sair</button>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/conta.js"></script>
+
+</body>
+
+</html>
