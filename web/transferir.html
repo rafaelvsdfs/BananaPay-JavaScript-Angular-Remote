@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/depositar.css">
+    <title>Transferir</title>
+</head>
+<body>
+    <h1>Transferir</h1>
+    <div class="conteudo-3">
+        <input class="input" type="text" id="cpfDestinatario" placeholder="CPF do destinatário" required step="0.01">
+        <br>
+        <input class="input" type="number" id="valorTransferencia" placeholder="Valor da transferência" required step="0.01">
+        <br>
+        <button id="button-cadastrar" onclick="transferir()">Transferir</button>
+    </div>
+    <br>
+    <p id="msgtransferencia"></p>
+    <a id="button1" href="../web/conta.html">Início</a>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/conta.js"></script>
+</body>
+</html>

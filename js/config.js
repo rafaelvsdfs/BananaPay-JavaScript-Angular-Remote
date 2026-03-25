@@ -1,6 +1,7 @@
 // CONFIGURAÇÃO DO SUPABASE - COLOQUE SEUS DADOS AQUI
-const SUPABASE_URL = 'https://jtxoxbrflsruqulokzxn.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp0eG94YnJmbHNydXF1bG9renhuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQyNzM4NTYsImV4cCI6MjA4OTg0OTg1Nn0.gUDO90pXNMHjs14qxKG5pmrF3f9kVPHBQxNkDWrWfIA';
+const SUPABASE_URL = 'https://dnolbtlcpllzchoxomao.supabase.co';
+const SUPABASE_KEY = 'sb_publishable__pEEepDTS9ehIBN9ycKYww_ZC9iZNpO';
+
 
 async function supabaseQuery(tabela, metodo, dados = null, id = null) {
     let url = `${SUPABASE_URL}/rest/v1/${tabela}`;

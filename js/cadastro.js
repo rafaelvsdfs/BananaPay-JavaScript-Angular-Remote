@@ -2,9 +2,13 @@ async function cadastrar() {
     const email = document.getElementById('email').value.trim();
     const senha = document.getElementById('senha').value;
     const nome = document.getElementById('nome').value.trim();
+    const cpf = document.getElementById('cpf').value.trim();
+    const saldo = parseFloat(document.getElementById('saldo').value) || 0;
+    const limite = parseFloat(document.getElementById('limite').value) || 0;
+
     const msg = document.getElementById('msg');
 
-    if (!email || !senha || !nome) {
+    if (!email || !senha || !nome || !cpf) {
         msg.textContent = 'Preencha todos os campos';
         return;
     }
@@ -12,16 +16,30 @@ async function cadastrar() {
     try {
         const contas = await supabaseQuery('contas', 'GET');
 
-        let jaExiste = false;
+        let jaExisteEmail = false;
+        let jaExisteCPF = false;
+
         for (let i = 0; i < contas.length; i++) {
             if (contas[i].email === email) {
-                jaExiste = true;
+                jaExisteEmail = true;
                 break;
             }
         }
 
-        if (jaExiste) {
+        for (let i = 0; i < contas.length; i++) {
+            if (contas[i].cpf === cpf) {
+                jaExisteCPF = true;
+                break;
+            }
+        }
+
+        if (jaExisteEmail) {
             msg.textContent = 'Email já cadastrado';
+            return;
+        }
+
+        if (jaExisteCPF) {
+            msg.textContent = 'CPF já cadastrado';
             return;
         }
 
@@ -29,7 +47,10 @@ async function cadastrar() {
             email: email,
             senha: senha,
             nome: nome,
-            saldo: 0
+            cpf: cpf,
+            saldo: saldo,
+            limite: limite,
+            limite_original: limite
         });
 
         if (resultado.length > 0) {

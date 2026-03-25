@@ -1,26 +1,35 @@
 async function entrar() {
     const email = document.getElementById('email').value.trim();
     const senha = document.getElementById('senha').value;
+    const cpf = document.getElementById('cpf').value.trim();
     const msg = document.getElementById('msg');
 
     try {
         const contas = await supabaseQuery('contas', 'GET');
 
-        let contaEncontrada = null;
-
-        for (let i = 0; i < contas.length; i++) {
-            if (contas[i].email === email && contas[i].senha === senha) {
-                contaEncontrada = contas[i];
-                break;
-            }
-        }
-
-        if (!contaEncontrada) {
-            msg.textContent = 'Email ou senha incorretos';
+        const contaPorEmail = contas.find(c => c.email === email);
+        if (!contaPorEmail) {
+            msg.textContent = 'Email não encontrado';
             return;
         }
 
-        sessionStorage.setItem('contaLogada', JSON.stringify(contaEncontrada));
+        const contaPorCPF = contas.find(c => c.cpf === cpf);
+        if (!contaPorCPF) {
+            msg.textContent = 'CPF não encontrado';
+            return;
+        }
+
+        if (contaPorEmail.senha !== senha) {
+            msg.textContent = 'Senha incorreta';
+            return;
+        }
+
+        if (contaPorEmail.id !== contaPorCPF.id) {
+            msg.textContent = 'Email e CPF não correspondem';
+            return;
+        }
+
+        sessionStorage.setItem('contaLogada', JSON.stringify(contaPorEmail));
         window.location.href = 'conta.html';
 
     } catch (erro) {

@@ -1,41 +1,33 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Minha Conta - Banco S</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/conta.css">
+    <title>Home</title>
 </head>
+<body class="body">
+    <h1>Olá, <span id="nome">...</span></h1>
 
-<body>
+    <div class="conteudo-1">
+        <p id="p-home">Saldo em conta : 
+        <strong>R$ <span id="saldo">...</span></strong></p>
 
-    <h2>Banco S</h2>
-    <p>Olá, <span id="nome">...</span></p>
-    <p>Email: <span id="email">...</span></p>
+        <p>Limite de crédito : 
+        <strong>R$ <span id="limite">...</span></strong></p>
 
+        <div class="operacoes">
+            <a class="button-operacoes" href="../web/depositar.html">Depositar</a>
+            <a class="button-operacoes" href="../web/sacar.html">Sacar</a>
+            <a class="button-operacoes" href="../web/transferir.html">Transferir</a>
+            <a class="button-operacoes" href="../web/historico.html">Historico</a>
+        </div>
+    </div>
 
-    <h3>SALDO: R$ <span id="saldo">0,00</span></h3>
-
-
-    <h3>Depositar</h3>
-    <input type="number" id="valorDep" step="0.01">
-    <button onclick="depositar()">Depositar</button>
-    <p id="msgDep"></p>
-
-
-    <h3>Sacar</h3>
-    <input type="number" id="valorSaq" step="0.01">
-    <button onclick="sacar()">Sacar</button>
-    <p id="msgSaq"></p>
-
-
-    <h3>Histórico</h3>
-    <div id="historico">Carregando...</div>
-
-    <button onclick="sair()">Sair</button>
+    <br>
+    <a id="button1" href="#" onclick="sair()">Sair</a>
 
     <script src="../js/config.js"></script>
     <script src="../js/conta.js"></script>
-
 </body>
-
 </html>
