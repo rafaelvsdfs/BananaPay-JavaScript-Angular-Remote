@@ -1,15 +1,8 @@
-/* =============================================
-   HOME — estilos visuais
-   Linkar no <head>:
-   <link rel="stylesheet" href="{{ url_for('static', filename='CSS/home.css') }}">
-   ============================================= */
-
 body {
     background-color: #2f4035;
     font-family: 'Segoe UI', sans-serif;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     padding: 2rem 1rem;
     height: auto;
     margin: 0;
@@ -25,13 +18,15 @@ h1 {
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 
 .conteudo-1 {
+    text-align: center;
     background-color: #3d6b4f;
     border-radius: 16px;
     padding: 2rem;
-    width: 100%;
+    width: 30%;
     max-width: 700px;
     height: auto;
     margin: 0 auto;
