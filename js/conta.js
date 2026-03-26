@@ -52,6 +52,18 @@ async function depositar() {
         return;
     }
 
+    if (valor > 1000000) {
+        msg.style.color = 'red';
+        msg.textContent = 'Valor máximo por depósito é de R$ 1.000.000,00';
+        return;
+    }
+
+    if (saldo >= 10000000) {
+        msg.style.color = 'red';
+        msg.textContent = 'Saldo máximo é de R$ 10.000.000,00';
+        return;
+    }
+
     let novoSaldo = saldo;
     let novoLimite = limite;
 

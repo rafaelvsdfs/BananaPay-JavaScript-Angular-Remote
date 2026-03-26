@@ -13,6 +13,16 @@ async function cadastrar() {
         return;
     }
 
+    if (saldo > 1000000) {
+        msg.textContent = 'O saldo inicial deve ser menor ou igual a R$ 1.000.000,00';
+        return;
+    }
+
+    if (limite > 1000000) {
+        msg.textContent = 'O limite inicial deve ser menor ou igual a R$ 1.000.000,00';
+        return;
+    }
+
     try {
         const contas = await supabaseQuery('contas', 'GET');
 
