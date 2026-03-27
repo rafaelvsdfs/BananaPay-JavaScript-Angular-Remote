@@ -16,5 +16,5 @@ Sistema bancário web desenvolvido com HTML, CSS, JavaScript ultilizando o Supab
 
 -Como usar
 1. Clone o repositório
-2. Abra o `index.html` no navegador
+2. Abra o `index.html`  no navegador
 3. cadastre e ultilize das funcionalidades
