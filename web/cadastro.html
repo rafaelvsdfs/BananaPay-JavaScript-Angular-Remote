@@ -18,14 +18,13 @@
         <input class="input" type="text"  id="nome" placeholder="Nome" required>
         <br>
         <input class="input" type="text" id="cpf" placeholder="CPF" required>
-        <span id="erro-cpf" style="color:red; display:none;">CPF inválido</span>
         <br>
         <input class="input" type="number" id="saldo" placeholder="Deseja colocar um saldo?" required step="0.01">
         <br>
         <input class="input" type="number" id="limite" placeholder="Deseja definir um limite?" required step="0.01">
         <br> 
         
-        <button id="button-cadastrar" onclick="cadastrar()">Cadastrar</button>        
+        <button id="button-cadastrar" onclick="handleCadastro()">Cadastrar</button>        
     </div>
     <br>
 
@@ -36,6 +35,8 @@
     <script src="../js/cadastro.js"></script>
 
     <script>
+        const msg = document.getElementById('msg');
+        
         function validarCPF(cpf) {
             cpf = cpf.replace(/[^\d]+/g,'');
             if(cpf.length !== 11) return false;
@@ -63,11 +64,11 @@
         function handleCadastro() {
             const cpf = document.getElementById('cpf').value;
             if (!validarCPF(cpf)) {
-                document.getElementById('erro-cpf').style.display = 'inline';
+                msg.textContent = 'CPF inválido. Por favor, insira um CPF válido.';
                 return;
             }
-            document.getElementById('erro-cpf').style.display = 'none';
-            cadastrar(); // chama a função do cadastro.js
+            msg.textContent = '';
+            cadastrar();
         }
     </script>
 </body>
